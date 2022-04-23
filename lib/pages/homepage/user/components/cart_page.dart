@@ -3,6 +3,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:music_rental_flutter/core/store.dart';
 import 'package:music_rental_flutter/main.dart';
 import 'package:music_rental_flutter/network/network_service.dart';
+import 'package:music_rental_flutter/pages/homepage/user/components/checkout.dart';
 import 'package:music_rental_flutter/pages/homepage/user/user_home.dart';
 import 'package:music_rental_flutter/pages/models/cart.dart';
 import 'package:music_rental_flutter/pages/static/static_values.dart';
@@ -51,7 +52,7 @@ class _CartTotal extends StatelessWidget {
           VxBuilder(
             mutations: {RemoveMutation},
             builder: (context, MyStore, _) {
-              return "\$${_cart.totalPrice}"
+              return "\$${_cart.totalAmount}"
                   .text
                   .xl5
                   .color(StaticValues.darkBluishColor)
@@ -61,22 +62,22 @@ class _CartTotal extends StatelessWidget {
           30.widthBox,
           ElevatedButton(
             onPressed: () async {
-              for (var element in _cart.products) {
-                NetworkService.sendAuthRequest(
-                    requestType: RequestType.post,
-                    url: StaticValues.apiUrlOrder,
-                    body: {
-                      "orderDate": DateTime.now().toString(),
-                      "customerId": await storage.read(key: "customer_id"),
-                      "productId": element.id,
-                    });
-              }
+              // for (var element in _cart.products) {
+              //   NetworkService.sendAuthRequest(
+              //       requestType: RequestType.post,
+              //       url: StaticValues.apiUrlOrder,
+              //       body: {
+              //         "orderDate": DateTime.now().toString(),
+              //         "customerId": await storage.read(key: "customer_id"),
+              //         "productId": element.id,
+              //       });
+              // }
               // empty cart
-              RemoveAllMutation();
+              // RemoveAllMutation();
               Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                      builder: (BuildContext context) => const UserHomePage()));
+                      builder: (BuildContext context) => const Checkout()));
             },
             style: ButtonStyle(
               backgroundColor:

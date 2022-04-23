@@ -25,7 +25,12 @@ class HomeDetailPage extends StatelessWidget {
           alignment: MainAxisAlignment.spaceBetween,
           buttonPadding: EdgeInsets.zero,
           children: [
-            "\$${product.price}".text.bold.xl2.red800.make(),
+            "\$${product.price}/month \n Maintence Cost ${product.maintenance_cost} \n Delivery Charge ${product.delivery_charge}"
+                .text
+                .bold
+                .xl
+                .red800
+                .make(),
             AddToCart(
               catalog: product,
             ).wh(120, 45),
@@ -54,7 +59,12 @@ class HomeDetailPage extends StatelessWidget {
                           .color(StaticValues.darkBluishColor)
                           .bold
                           .make(),
-                      product.desc.text.lg.color(Colors.grey).make(),
+                      Expanded(
+                          child: SingleChildScrollView(
+                        child: Container(
+                            child:
+                                product.desc.text.lg.color(Colors.grey).make()),
+                      )),
                     ],
                   ).py64(),
                 ),

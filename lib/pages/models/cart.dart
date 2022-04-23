@@ -21,6 +21,11 @@ class CartModel {
   //get total price
   num get totalPrice =>
       products.fold(0, (total, current) => total + current.price);
+  num get totalDeliveryCharge => products.fold(
+      0, (total, current) => total + int.parse(current.delivery_charge));
+  num get totalMC => products.fold(
+      0, (total, current) => total + int.parse(current.maintenance_cost));
+  num get totalAmount => totalPrice + totalDeliveryCharge + totalMC;
 }
 
 class AddMutation extends VxMutation<MyStore> {

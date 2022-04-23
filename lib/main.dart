@@ -74,7 +74,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Music Rental',
+        title: 'Musical Instrument Rental',
         theme: ThemeData(
           fontFamily: GoogleFonts.poppins().fontFamily,
           primarySwatch: Colors.deepPurple,

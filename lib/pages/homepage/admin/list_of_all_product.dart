@@ -107,7 +107,7 @@ class _ListOfAllProductState extends State<ListOfAllProduct> {
                                   .color(StaticValues.darkBluishColor)
                                   .bold
                                   .make(),
-                              product.desc.text.xs.color(Colors.grey).make(),
+                              // product.desc.text.xs.color(Colors.grey).make(),
                               ButtonBar(
                                 alignment: MainAxisAlignment.spaceBetween,
                                 buttonPadding: EdgeInsets.zero,

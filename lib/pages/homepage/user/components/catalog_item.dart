@@ -28,12 +28,12 @@ class CatalogItem extends StatelessWidget {
                     .color(StaticValues.darkBluishColor)
                     .bold
                     .make(),
-                product.desc.text.xs.color(Colors.grey).make(),
+                // product.desc.text.xs.color(Colors.grey).make(),
                 ButtonBar(
                   alignment: MainAxisAlignment.spaceBetween,
                   buttonPadding: EdgeInsets.zero,
                   children: [
-                    "\$${product.price}".text.bold.lg.make(),
+                    "\$${product.price}/monthly".text.bold.lg.make(),
                     AddToCart(catalog: product),
                   ],
                 ).pOnly(right: 8.0),

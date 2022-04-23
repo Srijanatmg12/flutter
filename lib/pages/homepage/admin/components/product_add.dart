@@ -26,6 +26,8 @@ class _AddProductState extends State<AddProduct> {
   TextEditingController name = TextEditingController();
   TextEditingController desc = TextEditingController();
   TextEditingController price = TextEditingController();
+  TextEditingController mc = TextEditingController();
+  TextEditingController delivery_charge = TextEditingController();
 
   @override
   void initState() {
@@ -84,6 +86,8 @@ class _AddProductState extends State<AddProduct> {
         'name': name.text,
         'desc': desc.text,
         'price': price.text,
+        'delivery_charge': delivery_charge.text,
+        'maintenance_cost': mc.text
       });
 
       // append image
@@ -104,6 +108,8 @@ class _AddProductState extends State<AddProduct> {
         name.text = "";
         desc.text = "";
         price.text = "";
+        mc.text = "";
+        delivery_charge.text = "";
         _image = File("assets/images/logo.png");
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -145,6 +151,18 @@ class _AddProductState extends State<AddProduct> {
                 controller: price,
                 decoration: const InputDecoration(
                   hintText: "Price",
+                ),
+              ),
+              TextFormField(
+                controller: delivery_charge,
+                decoration: const InputDecoration(
+                  hintText: "Delivery Charge",
+                ),
+              ),
+              TextFormField(
+                controller: mc,
+                decoration: const InputDecoration(
+                  hintText: "Maintence Cost",
                 ),
               ),
               IconButton(

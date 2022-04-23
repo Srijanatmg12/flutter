@@ -14,6 +14,8 @@ class Product {
   final String name;
   final String desc;
   final num price;
+  final String maintenance_cost;
+  final String delivery_charge;
   String image;
 
   Product(
@@ -21,14 +23,19 @@ class Product {
       required this.name,
       required this.desc,
       required this.price,
+      this.maintenance_cost = "",
+      this.delivery_charge = "",
       required this.image});
 
   factory Product.fromMap(Map<String, dynamic> map) {
+    print(map);
     return Product(
       id: map["id"],
       name: map["name"],
       desc: map["description"],
       price: map["price"],
+      maintenance_cost: map['maintenance_cost'].toString(),
+      delivery_charge: map['delivery_charge'].toString(),
       image: map["image"] ?? StaticValues.defaultImage,
     );
   }
@@ -38,6 +45,8 @@ class Product {
         "name": name,
         "desc": desc,
         "price": price,
+        "maintenance_cost": maintenance_cost,
+        "delivery_charge": delivery_charge,
         "image": image,
       };
 }
