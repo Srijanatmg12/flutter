@@ -43,9 +43,7 @@ class AdminLoginProvider with ChangeNotifier {
       final resMap = json.decode(response!.body);
       if (resMap["success"] == 0) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(resMap["data"]),
-          ),
+          SnackBar(content: Text(resMap["data"])),
         );
       } else {
         await storage.write(key: "userToken", value: resMap["token"]);
